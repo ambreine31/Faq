@@ -1,0 +1,31 @@
+<%- include("_header") -%>
+
+<h1>FAQ (<%= model.length %>)</h1>
+
+<div class="table-responsive-sm">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Question</th>
+        <th>Answer</th>
+        <th class="d-print-none">
+          <a class="btn btn-sm btn-success" href="/create">Add</a>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (const faq of model) { %>
+        <tr>
+          <td><%= faq.question %></td>
+          <td><%= faq.reponse %></td>
+          <td class="d-print-none">
+            <a class="btn btn-sm btn-warning" href="/edit/<%= faq.faqId %>">Edit</a>
+            <a class="btn btn-sm btn-danger" href="/delete/<%= faq.faqId %>">Delete</a>
+          </td>
+        </tr>
+      <% } %>
+    </tbody>
+  </table>
+</div>
+
+<%- include("_footer") -%>
