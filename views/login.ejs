@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Home</title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+<h1>Please log in</h1>
+
+<form action="/signup" method="post">
+  <div class="form-horizontal">
+
+    <%- include("_login") -%>
+
+    <div class="form-group row">
+      <label class="col-form-label col-sm-2"></label>
+      <div class="col-sm-10">
+        <input type="submit" value="Login !" class="btn btn-default btn-success" />
+      </div>
+    </div>
+  </div>
+</form>
+
+<%- include("_footer") -%>

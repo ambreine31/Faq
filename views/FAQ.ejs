@@ -1,13 +1,23 @@
 <%- include("_header") -%>
 
 <h1>FAQ (<%= model.length %>)</h1>
-
+<div class="dropdown">
+  <button class="dropbtn">Filter</button>
+  <div class="dropdown-content">
+    <% for (const d of domaines) { %>
+      <a href="/filter/<%= d %>"><%= d %></a>
+    <% } %>
+    <a href="/FAQ"> none </a>
+  </div>
+</div>
 <div class="table-responsive-sm">
   <table class="table table-hover">
     <thead>
       <tr>
         <th>Question</th>
         <th>Answer</th>
+        <th>Domaine</th>
+        <th>domaine</th>
         <th class="d-print-none">
           <a class="btn btn-sm btn-success" href="/create">Add</a>
         </th>
@@ -18,6 +28,19 @@
         <tr>
           <td><%= faq.question %></td>
           <td><%= faq.reponse %></td>
+          <td>
+            <div class="dropdown">
+              <button class="dropbtn">Dropdown</button>
+              <div class="dropdown-content">
+                <% for (const d of domaines) { %>
+                  <a href="/domaine/<%=faq.faqId%>/<%= d %>"><%= d %></a>
+                <% } %>
+              </div>
+            </div>
+          </td>
+          <td>
+            <%= faq.domaine %>
+          </td>
           <td class="d-print-none">
             <a class="btn btn-sm btn-warning" href="/edit/<%= faq.faqId %>">Edit</a>
             <a class="btn btn-sm btn-danger" href="/delete/<%= faq.faqId %>">Delete</a>
